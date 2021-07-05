@@ -11,3 +11,66 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.navbar {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+  display: flex;
+}
+
+.linknavbar {
+  font-size: 1rem !important;
+}
+
+#main-picture {
+  position: absolute;
+  background-size: cover;
+  background-position: 50%;
+  z-index: -1;
+  width: 100vw;
+  height: 80vh;
+    background-image:
+    linear-gradient(rgba(150, 75, 0, 0.75),
+      rgba(0, 140, 255, 0.75)),
+    url('https://firebasestorage.googleapis.com/v0/b/tahvil-mik.appspot.com/o/210305199_544529996575380_4613260962180733638_n%20copy.jpg?alt=media&token=15415842-8cea-4e8d-93c6-172e3751fcb3');
+}
+
+#tagline {
+  color: black;
+  font-family: Comic Sans MS;
+  margin-top: 5%;
+  font-size: 3.5rem;
+}
+
+.links {
+  font-size: 2rem;
+}
+
+.langflag {
+  display: flex;
+  flex-direction: row;
+  margin: 5px;
+}
+
+.langabb {
+  height: 20px;
+  margin: 5px;
+  font-size: 22px;
+}
+
+.flag {
+  width: 30px;
+  height: 30px;
+}
+#droppdownlang {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.login {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 1rem;
+}
