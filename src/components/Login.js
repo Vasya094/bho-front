@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import {
+  useDispatch,
+  useSelector
+} from "react-redux";
+import {
   Form,
   FormGroup,
   ControlLabel,
@@ -8,11 +12,35 @@ import {
   ButtonToolbar,
   Button,
 } from "rsuite";
+import {registerUser} from '../slices/userSlice'
 
 const Login = () => {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
-  console.log(loginEmail);
+  const [regEmail, setRegEmail] = useState("");
+  const [regPassword, setRegPassword] = useState("");
+  const [number, setNumber] = useState("");
+  const [name, setName] = useState("");
+  const [information, setInformation] = useState("");
+    const dispatch = useDispatch()
+
+    const register = async () => {
+      try {
+        const reqObject = {
+          userInfo: {
+            userName: name,
+            information,
+            phoneNumber: number,
+            email: regEmail,
+            password: regPassword
+          }
+        }
+        const resultAction = await dispatch(registerUser(reqObject))
+        console.log(resultAction)
+      } catch (err) {
+        console.error("REG error")
+      }
+    }
   const { t } = useTranslation();
   return (
     <div className="login">
@@ -48,27 +76,63 @@ const Login = () => {
         <Form fluid>
           <FormGroup>
             <ControlLabel>{t("reg_name")}</ControlLabel>
-            <FormControl name="name" />
+            < FormControl value = {
+              name
+            }
+            onChange = {
+              (e) => setName(e)
+            }
+            name = "name" / >
           </FormGroup>
           <FormGroup>
             <ControlLabel>{t("email")}</ControlLabel>
-            <FormControl name="email" type="email" />
+            < FormControl value={regEmail}
+            onChange= {
+              (e) => setRegEmail(e)
+            }
+            name = "email"
+            type = "email" />
           </FormGroup>
           <FormGroup>
             <ControlLabel>{t("number_call")}</ControlLabel>
-            <FormControl name="number" type="text" />
+            < FormControl value = {
+              number
+            }
+            onChange = {
+              (e) => setNumber(e)
+            }
+            name = "number"
+            type = "text" />
           </FormGroup>
           <FormGroup>
             <ControlLabel>{t("password")}</ControlLabel>
-            <FormControl name="password" type="password" />
+            <FormControl 
+            value = {
+              regPassword
+            }
+            onChange = {
+              (e) => setRegPassword(e)
+            }
+            name = "password"
+            type = "password" / >
           </FormGroup>
           <FormGroup>
             <ControlLabel>{t("information")}</ControlLabel>
-            <FormControl rows={5} name="textarea" componentClass="textarea" />
+            < FormControl value = {
+              information
+            }
+            onChange = {
+              (e) => setInformation(e)
+            }
+            rows = {
+              5
+            }
+            name = "textarea"
+            componentClass = "textarea" / >
           </FormGroup>
           <FormGroup>
             <ButtonToolbar>
-              <Button appearance="primary">{t("registration")}</Button>
+              <Button appearance="primary"  onClick={register}>{t("registration")}</Button>
               <Button appearance="default">{t("cancel")}</Button>
             </ButtonToolbar>
           </FormGroup>
