@@ -74,3 +74,6 @@ code {
   align-items: center;
   margin-top: 1rem;
 }
+.signin, .registration {
+  width: 25rem;
+}

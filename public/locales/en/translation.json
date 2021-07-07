@@ -1,7 +1,7 @@
 {
     "home": "Home page",
     "events": "Events",
-    "login": "Log in or Registration",
+    "login": "Sign in",
     "tagline": "We will build it alone...",
     "lang": "Language",
     "about": "About us",
@@ -14,5 +14,6 @@
     "registration": "Registration",
     "login_title": "Log in",
     "registration_title": "Registration",
-    "number_call": "Number to connect with you"
+    "number_call": "Number to connect with you",
+    "no_account_question": "You don't have an account?"
 }
