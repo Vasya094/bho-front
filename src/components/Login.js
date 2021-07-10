@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { loginUser } from "../slices/userSlice";
+import { useDispatch } from "react-redux";
 import {
   Form,
   FormGroup,
@@ -10,12 +11,21 @@ import {
   ButtonToolbar,
   Button,
 } from "rsuite";
-import { registerUser } from "../slices/userSlice";
 
 const Login = () => {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const { t, i18n } = useTranslation();
+  const dispatch = useDispatch();
+  const login = async () => {
+      const reqObject = { email: loginEmail, password: loginPassword };
+      console.log(reqObject)
+    try {
+      const resultAction = await dispatch(loginUser(reqObject));
+    } catch (err) {
+      console.error("LOGIN error");
+    }
+  };
   return (
     <div className="login">
       <div className="signin">
@@ -40,13 +50,12 @@ const Login = () => {
             />
           </FormGroup>
           <ButtonToolbar>
-            <Button appearance="primary">{t("come_in")}</Button>
+            <Button appearance="primary" onClick={login}>
+              {t("come_in")}
+            </Button>
             <Button appearance="default">{t("cancel")}</Button>
-           
           </ButtonToolbar>
-           <Link to="/registration">
-               {t("no_account_question")} 
-            </Link>
+          <Link to="/registration">{t("no_account_question")}</Link>
         </Form>
       </div>
     </div>

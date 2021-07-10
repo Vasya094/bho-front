@@ -15,5 +15,8 @@
     "login_title": "Log in",
     "registration_title": "Registration",
     "number_call": "Number to connect with you",
-    "no_account_question": "You don't have an account?"
+    "no_account_question": "You don't have an account?",
+    "volunteers": "Volunteers",
+    "admin_panel": "Admin panel",
+    "your_city": "Your city?"
 }

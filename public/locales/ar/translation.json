@@ -14,6 +14,9 @@
     "registration": "إنشاء الحساب",
     "login_title": "الدخول",
     "number_call": "رقم التواصل",
-    "no_account_question": "ليس عندك حساب؟"
+    "no_account_question": "ليس عندك حساب؟",
+    "volunteers": "المتطوعون",
+    "admin_panel": "لوحة المشرف",
+    "your_city": "من أي مدينة أنت؟"
 
 }
