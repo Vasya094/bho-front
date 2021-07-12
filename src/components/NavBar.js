@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Flags from "country-flag-icons/react/3x2";
-import { Navbar, Nav, Dropdown, ButtonToolbar } from "rsuite";
+import { Navbar, Nav, Dropdown, ButtonToolbar, Icon } from "rsuite";
 import "rsuite/dist/styles/rsuite-default.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -42,7 +42,7 @@ const NavBar = () => {
       </Navbar>
       <ButtonToolbar id="droppdownlang">
         {data.name && <span>{data.name}</span>}
-        <Dropdown title={t("lang")} activeKey={activeLang}>
+        <Dropdown icon={<Icon icon="language" />} title={t("lang")} activeKey={activeLang}>
           <Dropdown.Item className="langflag" eventKey="en">
             <span className="langabb" onClick={() => changeLanguage("en")}>
               <Flags.GB className="flag" title="EN" />
