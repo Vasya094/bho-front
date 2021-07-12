@@ -16,6 +16,7 @@ const Registration = () => {
   const [regPassword, setRegPassword] = useState("");
   const [number, setNumber] = useState("");
   const [name, setName] = useState("");
+  const [city, setCity] = useState("");
   const [information, setInformation] = useState("");
   const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
@@ -26,6 +27,7 @@ const Registration = () => {
           userName: name,
           information,
           phoneNumber: number,
+          city,
           email: regEmail,
           password: regPassword,
         },
@@ -56,6 +58,15 @@ const Registration = () => {
               onChange={(e) => setRegEmail(e)}
               name="email"
               type="email"
+            />
+          </FormGroup>{" "}
+          <FormGroup>
+            <ControlLabel> {t("your_city")} </ControlLabel>{" "}
+            <FormControl
+              value={city}
+              onChange={(e) => setCity(e)}
+              name="city"
+              type="city"
             />
           </FormGroup>{" "}
           <FormGroup>
